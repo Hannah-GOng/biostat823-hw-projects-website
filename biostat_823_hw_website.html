@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Han Gong - BioStat 823 Homework Project Website</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Han Gong </strong> - BioStat 823 Homework Project Website </a>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+                    <li><a href="https://github.com/Hannah-GOng" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="Han_Gong_Resume.pdf" class="icon brands fa-black-tie"><span class="label">Resume</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>1. Msth is fun</h1>
+                    <p>In this project, basic python programming is used to solve 3 problems from the Euler Project. This blog is posted to decribe the solutions and how I approached each problem</p>
+                  </header>
+
+									<hr class="major" />
+
+									<h2>Problem 6: Sum square difference</h2>
+                  <h4>Find the difference between the sum of the squares of the first n natural numbers and the square of the sum.</h4>
+									<p> The sum of the squares of the first ten natural numbers is, 1^2+2^2+3^2...+10^2 = 385. The square of the sum of the first ten natural numbers is (1+2+...10)^2 = 55^2 = 3025. Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 2640 </p>
+                  <span class="image main"><img src="code_screenshot/problem6.png" alt="" /></span>
+                  
+                  <p>
+                  <h4>STEP</h4>
+                  <li>1. To solve the problem, we write a function that returns the difference between the sum of the squares and the square of the sum of a list of consecutive natual numbers.</li>
+									<li>2. In the function, we create a list of n natural numbers from 1 to n+1 (exclusive), and calculate their sum of square & square of sun seperately. </li>
+                  <li>3. Return the difference between the two. Call the fucntion and print answer!</li></p>
+
+									<hr class="major" />
+
+									<h2>Problem 50: Consecutive prime sum</h2>
+                  <h4>Which prime, below one-million, can be written as the sum of the most consecutive primes?</h4>
+									<p> The prime 41, can be written as the sum of six consecutive primes: 41 = 2 + 3 + 5 + 7 + 11 + 13  This is the longest sum of consecutive primes that adds to a prime below one-hundred. The longest sum of consecutive primes below one-thousand that adds to a prime, contains 21 terms, and is equal to 953.</p>
+              
+            <span class="image main"><img src="code_screenshot/problem50_1.png" alt="" /></span>
+            <p>
+                  <h4>STEP1: Create a function to check if a number is prime.</h4>
+                  <li>1. Set all flag = True.</li>
+									<li>2. Check if the 'num' is smaller than one, if yes, flag False since prime number > 1.</li>
+                  <li>3. Loop over numbers started from 2; check if there're dividers of 'num'; If yes, then flag False since the prime number is a natural number greater than 1 that is not a product of two smaller natural numbers.</li></p>
+            
+           <span class="image main"><img src="code_screenshot/problem50_2.png" alt="" /></span>
+            <p>
+                  <h4>STEP2: Find the prime number that associate with the longest chain</h4>
+                  <li>1. Loop over all natural numbers below n (100,000) in this case. Using the isprm function created before, initialize a list with all prime numbers that are smaller than n. </li>
+									<li>2. Loop over the prime list, strated from the smallest prime; Use two pointers to record the strating and ending position; Update the new prime_sum for every loop when a new prime is added to the number.</li>
+                  <li>3. Check if the sum is within the boundary. If not, stop the loop. If yes, call the isprm function and check if the sum is also a prime number.</li>
+                  <li>4. Updated the longest chain and the associated prime number.</li>
+                  <li>5. To make the code more efficient, add an if statement in every loop. If the smallest numbers we're calling are larger than the average number we have in our current list, if we accept the offer at the start of the loop, then we know there is no potential for a longer chain, break the loop return the result.</li>
+            </p>
+            
+            
+									<hr class="major" />
+
+									<h2>Problem 125: Palindromic sums</h2>
+                  <h4>Find the sum of all the numbers less than 10^8 that are both palindromic and can be written as the sum of consecutive squares.</h4>
+									<p> The palindromic number 595 is interesting because it can be written as the sum of consecutive squares: 62 + 72 + 82 + 92 + 102 + 112 + 122.There are exactly eleven palindromes below one-thousand that can be written as consecutive square sums, and the sum of these palindromes is 4164. Note that 1 = 02 + 12 has not been included as this problem is concerned with the squares of positive integers.</p>
+              
+            <span class="image main"><img src="code_screenshot/problem125.png" alt="" /></span>
+        <p>
+                  <h4>STEP:</h4>
+                  <li>1. Create a function called 'is_palindrome' to check is the input number is alindrome, Return True for yes and False for not. Here, I do so by converting the numeric input to a string and use basic python function to reverse the order.</li>
+                  <li>2. Loop over 1 to the sqaure root of 10^8 to create a list for consecutive square.</li>
+                  <li>3. Loop over the square list, strated from the smallest square; Use two pointers to record the strating and ending position.</li>
+                  <li>4. Check if the sum is within the boundary. If not, stop the loop.</li>
+                  <li>5. Check is the sum is a palindrome, if yes, add into the set.</li>
+                  <li>6. Return the sum of the final palindrome list.</li>
+            </p>
+            
+
+								</section>
+
+						</div>
+					</div>
+
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
