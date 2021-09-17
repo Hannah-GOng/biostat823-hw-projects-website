@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Han Gong - BioStat 823 Homework Project Website</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Han Gong </strong> - BioStat 823 Homework Project Website </a>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+                    <li><a href="https://github.com/Hannah-GOng" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="Han_Gong_Resume.pdf" class="icon brands fa-black-tie"><span class="label">Resume</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>2. Number theory and a Google recruitment puzzle</h1>
+                    <p> Find the first 10-digit prime in the decimal expansion of 17π.</p>
+                  </header>
+
+									<hr class="major" />
+
+									<h2>Question Prompt</h2>
+                  <h4>Find the difference between the sum of the squares of the first n natural numbers and the square of the sum.</h4>
+									<p> The first 5 digits in the decimal expansion of π are 14159. The first 4-digit prime in the decimal expansion of π are 4159. You are asked to find the first 10-digit prime in the decimal expansion of 17π. First solve sub-problems (divide and conquer):
+
+<li> Write a function to generate an arbitrary large expansion of a mathematical expression like π. Hint: You can use the standard library decimal or the 3rd party library sympy to do this </li>
+<li> Write a function to check if a number is prime. Hint: See Sieve of Eratosthenes </li>
+<li> Write a function to generate sliding windows of a specified width from a long iterable (e.g. a string representation of a number) </li> </p>
+
+									<hr class="major" />
+
+									<h2>Solution</h2>
+                  <h4>STEP ONE: Expansion Generator: generate an arbitrary large expansion of a mathematical expression</h4>
+									<p> <li>1. Install third party package sympy and mpmath.</li>
+									<li>2. Generate n number of digits of a mathematical expression using mp.dps = n and sym.Float().</li></p>
+              
+            <span class="image main"><img src="code_screenshot/hw2_f1.png" alt="" /></span>
+            <p>
+                  <h4>STEP TWO: Create a function to check if a number is prime.</h4>
+                  <li>1. Set all flag = True.</li>
+									<li>2. Check if the 'num' is smaller than one, if yes, flag False since prime number > 1.</li>
+                  <li>3. Loop over numbers started from 2; check if there're dividers of 'num'; If yes, then flag False since the prime number is a natural number greater than 1 that is not a product of two smaller natural numbers.</li></p>
+            
+           <span class="image main"><img src="code_screenshot/hw2_f2.png" alt="" /></span>
+
+              <p>
+                  <h4>STEP THREE: function to generate sliding windows of a specified width from a long iterable and check for prime numbers.</h4>
+                  <li>1. Using for loop, create a moving window function to capture 10-digit numbers in the expansion of 17pi.</li>
+									<li>2. For every number, use the is_prim fuction created previous to check if the number is prime.</li>
+                  <li>3. Break the loop immediately and return 'current' window once the first prime is found.</li></p>
+            
+            <span class="image main"><img src="code_screenshot/hw2_f3.png" alt="" /></span>
+            
+            <hr class="major" />
+
+									<h2>Unit Test</h2>
+                  <h4>Test for is_prime</h4>
+									<p> <li>1. Edge cases where the input is smaller or equal than one. </li>
+									<li>2. Other common inputs with both prime and non-prime numbers</li></p>
+            
+                  <h4>Test for find_prime</h4>
+									<p> <li>1. Edge cases where the target prime is not exist. </li>
+									<li>2. Given that the first 10-digit prime in the expansion e is 7427466391.</li></p>
+              
+            <span class="image main"><img src="code_screenshot/hw2_test.png" alt="" /></span>
+            <p>
+           
+
+            
+
+								</section>
+
+						</div>
+					</div>
+
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
