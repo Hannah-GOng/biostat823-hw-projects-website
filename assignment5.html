@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Han Gong - BioStat 823 Homework Project Website</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Han Gong </strong> - BioStat 823 Homework Project Website </a>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+                    <li><a href="https://github.com/Hannah-GOng" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="Han_Gong_Resume.pdf" class="icon brands fa-black-tie"><span class="label">Resume</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>5. Dive into Deep Leanring</h1>
+                    <p>In this project, I am traning a simple deep learning model(CNN) to classify beetles, cockroaches and dragonflies using images from https://www.insectimages.org/index.cfm. The CNN model was trained using Pytorch Package</p>
+                  </header>
+
+									<hr class="major" />
+
+                  <h2>Data Preprocessing</h2>
+
+									<h4>STEP 1: Transform Image Data</h4>
+                  <p> Transforms are common image transformations. They can be chained together using Compose in Pytorch. Since images in the folder have different dimensions, torchvision.transforms.CenterCrop function was used to crops the given images at the center with a identical size of 256 x 256. torchvision.transforms.ToTensor converts a PIL image or numpy.ndarray to tensor, which is needed for model training in Pytorch. torchvision.transforms.normalize normalize the converted tensor image with mean and standard deviation. By normalizing the images, we can speed up the training and converge quickly due to the zero-mean.
+                  </p>
+                  <span class="image main"><img src="code_screenshot/hw5_02.png" alt="" /></span>
+                  
+                  <h4>STEP 2: Load Train, Validation and Test Data</h4>
+                  <p> Dataloader construct datasets through indicated paths. It also provides provides an iterable over the given dataset which combination of sampler and datasets. Creating a PyTorch Dataset and managing it with Dataloader keeps your data manageable and helps to simplify the machine learning pipeline<\p>
+                  <span class="image main"><img src="code_screenshot/hw5_03.png" alt="" /></span>
+                    
+                  <h4>Sanity Check: Plot the image data before training</h5>
+                  <span class="image main"><img src="code_screenshot/hw5_01.png" alt="" /></span>
+                    
+                  
+                    <hr class="major" />
+                    
+                  <h2>Construct and Train the CNN Model</h2>
+
+									<h4>STEP 1: Construct the CNN model structure</h4>
+                  <p> This image classification model is constructed with two convoltional layers, two MaxPool Layers and three fully connected layers.
+                  </p>
+                  <span class="image main"><img src="code_screenshot/hw5_04.png" alt="" /></span>
+                  
+                  <h4>STEP 2: Define Hyperprameters</h4>
+                  <p> Before strating the model training, we define hyperprameters such as learning rate, number of epoches, L2 regularization strength (to prevent overfiting) and optimizer.<\p>
+                  <span class="image main"><img src="code_screenshot/hw5_05.png" alt="" /></span>
+                    
+                  <h4>STEP 3: Train the Data</h4>
+                  <p>Train the CNN model with gradient descent calculation and loss function. Evaluate the model accuracy on validation data after each updates and store the average loss for each epoches<\p>
+                    <span class="image main"><img src="code_screenshot/hw5_06.png" alt="" /></span>
+                    <span class="image main"><img src="code_screenshot/hw5_07.png" alt="" /></span>
+                    
+                    <hr class="major" />
+                    
+                  <h2>Plot the Results</h2>
+                    <p>Accuracy VS. Number of Epoches<\p>
+                     <span class="image main"><img src="code_screenshot/hw5_08.png" alt="" /></span>
+                    <p>Loss VS. Number of Epoches<\p>
+                     <span class="image main"><img src="code_screenshot/hw5_09.png" alt="" /></span>
+                    
+                    <p>Testing Accuracy<\p>
+                    <span class="image main"><img src="code_screenshot/hw5_10.png" alt="" /></span>
+                    
+                      
+                
+								</section>
+
+						</div>
+					</div>
+
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
