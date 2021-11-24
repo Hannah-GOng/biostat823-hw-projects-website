@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Han Gong - BioStat 823 Homework Project Website</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Han Gong </strong> - BioStat 823 Homework Project Website </a>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+                    <li><a href="https://github.com/Hannah-GOng" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="Han_Gong_Resume.pdf" class="icon brands fa-black-tie"><span class="label">Resume</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>COVID-19 Analysis and Visulization Projec </h1>
+                    <p>In our final project, we conducted a modeling and analysis on COVID-19 clinic data and build our final data product as a visulization dashboard for public access and information. </p>
+                  </header>
+                  
+                  <p> People have different vulnerabilities to severe COVID-19 disease. The primary goal of our objective is to identify the risk factors which are more likely to lead to mortality when COVID-19 is positive. After exploring the COVID-19 clinic data and conduct interpretable modeling to explain important features in predicting death caused by COVID-19, we also aim to have an overview of the distribution of vaccinations among states and the potential correlation between vaccinations and the number of deaths for public awareness. Therefore, for our final data product as a dashboard, we included the visualization part of both vaccinations and estimated deaths. In the blog, I will primarily cover an introduction of the dashboard and walk through some important steps. </p>  
+									<hr class="major" />
+
+                  <h2>Visulization Dashboard -- Introduction</h2>
+                  
+               <!-- Part1 -->
+									<h3>Background and Dataset</h3>
+                  <p> The purpose of the dashboard is to display the progress of vaccine distribution, present the trends of cumulative death cases and build an interactive and self-interpretable data science tool for the target audiences, who are interested in exploring and understanding information on COVID-19 trends and vaccines.
+                  </p>
+                  <p> The original datasets used in the data visualization are accessed via CDC COVID-19 Data center. Since the beginning of the pandemic, CDC has served as a respected and authorized source of data and information that can be accessed by researchers, policy decision makers, and the general public. Therefore, we accessed the data using API calls for continuous updating and implemented data cleaning and processing on datasets including daily vaccine distribution by states, weekly cumulative reported death and death cases forecasting from different research institutions and models.
+                  </p>
+                  
+                  <h3>Package Usage</h3>
+                    <li><b>Plotly</b>
+                      <p> Plotly allows users to interact with graphs on display. Compared to other visualization packages, it allows users to customize interactive visuals with features like buttons, sliders, and dropdowns. In this dashboard, we want to add the interactives features that allows custimized input for Dates and Locations to make the graph more self-explanatory.
+                      </p>
+                    </li>
+                    <li><b>Pandas & Numpy</b>
+                      <p> Pandas is the package used for data manipulation and analysis. Sodapy is a python client for the Socrata Open Data API. Using the API call, I can control the volume of data in the visualization and achieve a continuous update when the newest data is available on the CDC website.
+                      </p>
+                    </li>
+                  </p>
+                    
+                  <hr class="major" />
+          <!-- Part2 -->       
+                <h2> Dashboard -- Define Input</h2>
+                
+                 <h3>Pick Date Range</h3>
+                  <span class="image main"><img src="code_screenshot/final_project_date_picker.png" alt="" /></span>
+                  <p> To add more flexibility in data selection, I add a plotly feature called 'Date Range Picker'. The Date Range Picker can be attached to any webpage element to pop up calendars for selecting dates, times, or predefined ranges like "Last 30 Days". When using <i>dcc.DatePickerRange</i> components, strings in the form 'YYYY-MM-DD' or date objects from the datetime module can be pass in to provide the selected dates to Dash components. The <i>min_date_allowed</i> and <i>max_date_allowed</i> is used to define the minimum and maximum avaliable dates on the calendar, which is 2020/04/09 and 2021/11/15 in this case. <i>initial_visible_month</i> defines the calendar month that is first displayed when the dcc.DatePickerRange component is opened.
+                  </p>
+                  <p> One lesson I learned from setting this component is that it is better to pass in string first, so you don't need to deal with Time Object in the calendar. Since string and DateTime are not comparable, I add a <i>pd.to_datetime</i> call to convert the input string to a DateTime object when filtering the data in the callback section.
+                    </p>
+              <span class="image main"><img src="code_screenshot/final_project_date_picker2.png" alt="" /></span>
+              
+                <h3>Pick Location & Model</h3>
+                  <p> To allow audience choose between States and Models used for forcasting, a dorpdown menu is used for the dash. Dropdown also serve as a tool to allow input features for location and type of models to filter the data and get different perspective.
+                  </p>
+              
+              <h2> Dashboard -- Creat Graph</h2>
+                
+                 <h3>Predictive Interval</h3>
+                  <p> 
+                    One of the major thing that I learn from the visulization is the use of continuous error bands. Continuous error bands contains a shaded region and a main trace to represent the of error or uncertainty in the prediction. In this case, I use four traces to construct the bounds of the band for 50% prediction interval and 95% interval, with the lower trace using fill='tonexty' to fill an area up to the upper trace. Adding the other trace using go.Scatter, the connected line represents the major trace, which is the predicted number of cumulative death in the graph.
+                  </p>
+              <span class="image main"><img src="code_screenshot/final_project_nterval_code.png" alt="" /></span>
+                <span class="image main"><img src="code_screenshot/final_project_interval.png" alt="" /></span>
+              
+              <h3>Other Analysis</h3>
+              <span class="image main"><img src="code_screenshot/final_project_dash1.png" alt="" /></span>
+              <span class="image main"><img src="code_screenshot/final_project_dash2.png" alt="" /></span>
+
+                      
+								</section>
+
+						</div>
+					</div>
+
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
